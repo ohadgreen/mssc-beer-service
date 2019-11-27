@@ -39,8 +39,4 @@ class BeerControllerTest {
                 .content(beerTestJson)
         ).andExpect(status().isCreated());
     }
-
-    @Test
-    void updateBeerById() {
-    }
 }
