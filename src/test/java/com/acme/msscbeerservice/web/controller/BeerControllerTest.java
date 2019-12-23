@@ -1,6 +1,7 @@
 package com.acme.msscbeerservice.web.controller;
 
 import com.acme.msscbeerservice.web.model.BeerDto;
+import com.acme.msscbeerservice.web.model.BeerStyle;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -31,7 +32,7 @@ class BeerControllerTest {
 
     @Test
     void saveNewBeer() throws Exception {
-        BeerDto testBeer = BeerDto.builder().build();
+        BeerDto testBeer = BeerDto.builder().beerName("Leff").beerStyle(BeerStyle.LAGER).upc(1000L).build();
         String beerTestJson = objectMapper.writeValueAsString(testBeer);
 
         mockMvc.perform(post("/api/v1/beer/")
