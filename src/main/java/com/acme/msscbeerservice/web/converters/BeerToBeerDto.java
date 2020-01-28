@@ -15,6 +15,7 @@ public class BeerToBeerDto implements Converter<Beer, BeerDto> {
                 .beerName(beer.getBeerName())
                 .beerStyle(BeerStyle.valueOf(beer.getBeerStyle().toUpperCase()))
                 .upc(beer.getUpc())
+                .quantityOnHand(beer.getQuantityOnHand())
                 .build();
     }
 }

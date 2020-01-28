@@ -29,21 +29,21 @@ public class BeerLoader implements CommandLineRunner {
                 .beerName("Goldstar")
                 .beerStyle("Lager")
                 .upc(10000L)
-                .minOnHand(10)
+                .quantityOnHand(10)
                 .build();
 
         Beer malka = Beer.builder()
                 .beerName("Malka")
                 .beerStyle("Lager")
                 .upc(10001L)
-                .minOnHand(12)
+                .quantityOnHand(12)
                 .build();
 
         Beer shapira = Beer.builder()
                 .beerName("Shapira")
                 .beerStyle("IPA")
                 .upc(10002L)
-                .minOnHand(20)
+                .quantityOnHand(20)
                 .build();
 
         beerRepository.save(goldstar);
