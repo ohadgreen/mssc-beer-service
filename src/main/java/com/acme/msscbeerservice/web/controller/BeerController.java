@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RequestMapping("/api/v1/beer")
@@ -36,8 +37,25 @@ public class BeerController {
 
     @GetMapping("/{beerId}")
     public ResponseEntity<BeerDto> getBeerById(@PathVariable("beerId")UUID beerId) {
-        BeerDto hogarden = BeerDto.builder().beerName("Hogarden").build();
-        return new ResponseEntity<>(hogarden, HttpStatus.OK);
+        Optional<Beer> beer = beerRepository.findById(beerId);
+        if (beer.isPresent()) {
+            BeerDto beerDto = beerToBeerDtoConverter.convert(beerRepository.findById(beerId).get());
+            return new ResponseEntity<>(beerDto, HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
+    @GetMapping("/byUpc/{upc}")
+    public ResponseEntity<BeerDto> getBeerByUpc(@PathVariable("upc") long upc) {
+        Beer beer = beerRepository.findByUpc(upc);
+        if (beer != null) {
+            BeerDto beerDto = beerToBeerDtoConverter.convert(beer);
+            return new ResponseEntity<>(beerDto, HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
     }
 
     @PostMapping
