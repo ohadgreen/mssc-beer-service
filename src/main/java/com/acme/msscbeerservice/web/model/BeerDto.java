@@ -28,7 +28,7 @@ public class BeerDto {
     private BeerStyle beerStyle;
     @Positive
     @NotNull
-    private Long upc;
+    private String upc;
     private BigDecimal price;
     private Integer quantityOnHand;
 }

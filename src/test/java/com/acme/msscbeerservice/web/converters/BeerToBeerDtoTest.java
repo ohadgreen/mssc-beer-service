@@ -19,7 +19,7 @@ class BeerToBeerDtoTest {
                 .id(UUID.randomUUID())
                 .beerName("Negev")
                 .beerStyle("Lager")
-                .upc(111L)
+                .upc("111")
                 .build();
 
         BeerDto beerDto = beerToBeerDto.convert(beer);

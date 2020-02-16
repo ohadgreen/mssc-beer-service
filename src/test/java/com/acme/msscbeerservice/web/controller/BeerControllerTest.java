@@ -33,7 +33,7 @@ class BeerControllerTest {
 
     @Test
     void saveNewBeer() throws Exception {
-        BeerDto testBeer = BeerDto.builder().beerName("Leff").beerStyle(BeerStyle.LAGER).upc(1000L).build();
+        BeerDto testBeer = BeerDto.builder().beerName("Leff").beerStyle(BeerStyle.LAGER).upc("1000").build();
         String beerTestJson = objectMapper.writeValueAsString(testBeer);
 
         mockMvc.perform(post("/api/v1/beer/")

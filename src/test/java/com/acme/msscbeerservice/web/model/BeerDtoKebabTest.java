@@ -25,7 +25,7 @@ public class BeerDtoKebabTest {
                 .id(UUID.randomUUID())
                 .beerName("Malka Aduma")
                 .beerStyle(BeerStyle.PILSNER)
-                .upc(123L)
+                .upc("123")
                 .build();
 
         String beerDtoJsonString = objectMapper.writeValueAsString(beerDtoTest);
